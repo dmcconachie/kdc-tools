@@ -1,4 +1,4 @@
-function w = quat2axis(q)
+function [w, theta] = quat2axis(q)
     if length(q) ~= 4
         error('quat2axis: q must be a 4 long vector');
     end
