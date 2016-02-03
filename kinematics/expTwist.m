@@ -24,7 +24,7 @@ function [transforms] = expTwist(twist, theta)
         w = twist(4:6, i);
         w_hat = skew(w);
         
-        if all(w == [0, 0, 0])
+        if all(w == [0; 0; 0])
             gi = [eye(3), v; 0 0 0 1];
         else
             gi = [expmExact(w_hat, theta(i)) , (eye(3) - expmExact(w_hat, theta(i))) * cross(w, v) + w*w'*v*theta(i); 0 0 0 1];
