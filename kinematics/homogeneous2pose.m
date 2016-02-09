@@ -1,6 +1,6 @@
 function [x] = homogeneous2pose(g)
 
-    if size(g) ~= [4 4]
+    if any(size(g) ~= [4 4])
         error('homogeneous2pose: g must be a 4x4 matrix')
     end
 

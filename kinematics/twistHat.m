@@ -1,5 +1,5 @@
 function twist_hat = twistHat(twist)
-    if size(twist) ~= [6 1]
+    if any(size(twist) ~= [6 1])
         error('twistHat: twist must be a 6x1 vector');
     end
     

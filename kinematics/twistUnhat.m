@@ -1,5 +1,5 @@
 function twist_unhat = twistUnhat(twist_hat)
-    if size(twist_hat) ~= [4 4]
+    if any(size(twist_hat) ~= [4 4])
         error('twistUnat: twist_hat must be a 4x4 matrix');
     end
     
