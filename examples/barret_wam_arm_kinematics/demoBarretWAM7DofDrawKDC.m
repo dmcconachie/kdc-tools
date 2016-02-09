@@ -1,4 +1,4 @@
-clc;clear;
+clc; clear;
 addpath([pwd '/animate'])
 addpath([pwd '/kinematics'])
 addpath([pwd '/dynamics'])
@@ -18,5 +18,6 @@ for i = 1:size(traj, 1)
 end
 
 %% Draw the resulting trajectory
-plot3(marker(:, 1), marker(:, 2), marker(:, 3))
+fig = figure(1); clf( fig );
+plot3(marker(:, 1), marker(:, 2), marker(:, 3), '.')
 xlabel('x'); ylabel('y'); zlabel('z')
