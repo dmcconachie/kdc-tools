@@ -17,16 +17,20 @@ function [transforms] = expTwist(twist, theta)
         g = sym(g);
         transforms = sym(transforms);
     end
-        
-    
+
     for i = 1:n
         v = twist(1:3, i);
         w = twist(4:6, i);
-        w_hat = skew(w);
         
         if all(w == [0; 0; 0])
             gi = [eye(3), v; 0 0 0 1];
         else
+            if norm(w) ~= 1
+                theta = theta * norm(w);
+                v = v / norm(w);
+                w = w / norm(w);
+            end
+            w_hat = skew(w);
             gi = [expmExact(w_hat, theta(i)) , (eye(3) - expmExact(w_hat, theta(i))) * cross(w, v) + w*w'*v*theta(i); 0 0 0 1];
         end
         
